@@ -3,53 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forkhub - Organize Your GitHub Projects</title>
-    <meta name="description" content="Forkhub is a tool for GitHub to help organize and manage your projects efficiently.">
-    <link rel="stylesheet" href="styles.css">
+    <title>Forkhub</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background-color: #2c2c2c;
+            padding: 20px 0;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+            color: #ffffff;
+        }
+        nav {
+            margin-top: 20px;
+        }
+        nav a, .button {
+            color: #b0b0b0;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+            padding: 10px 15px;
+            background-color: #3c3c3c;
+            border-radius: 5px;
+        }
+        nav a:hover, .button:hover {
+            color: #ffffff;
+            background-color: #4c4c4c;
+        }
+        .content {
+            background-color: #2c2c2c;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px 0;
+            background-color: #2c2c2c;
+            color: #b0b0b0;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+        .modal-content {
+            background-color: #3c3c3c;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 300px;
+            border-radius: 5px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+            background-color: #4c4c4c;
+            color: #e0e0e0;
+        }
+    </style>
 </head>
 <body>
     <header>
         <div class="container">
             <h1>Forkhub</h1>
             <nav>
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#services">Services</a>
-                <a href="https://github.com/elitecronax" target="_blank" rel="noopener noreferrer">Contact</a>
-                <a href="#tos">TOS</a>
+                <a href="#">Home</a>
+                <a href="#">About</a>
+                <a href="#">Services</a>
+                <a href="https://github.com/elitecronax" target="_blank">Contact</a>
+                <a href="#">TOS</a>
+                <a href="#" id="signupBtn" class="button">Sign Up</a>
+                <a href="#" id="loginBtn" class="button">Login</a>
             </nav>
         </div>
     </header>
 
-    <main class="container">
-        <section id="home" class="content">
+    <div class="container">
+        <div class="content">
             <h2>Welcome to Forkhub</h2>
-            <p>Forkhub is a tool for GitHub to help people organize their projects efficiently. Forkhub was created in 2024 by <a href="https://github.com/elitecronax" target="_blank" rel="noopener noreferrer">EliteCronax</a>.</p>
-        </section>
+            <p>Forkhub is a tool for Github to help people one by one and to organize things by however you want. Forkhub was made in 2024 by <a href="https://github.com/elitecronax" target="_blank">EliteCronax</a></p>
+            <h2>Q&A</h2>
+            <h2>What can Forkhub do?</h2>
+            <p>Forkhub and help you organize, code, etc. Your imagination is your limit.</p>
+            <h2>What code does Forkhub support?</h2>
+            <p>Forkhub supports various programming languages including HTML, CSS, JavaScript, Python, and more.</p>
+        </div>
+    </div>
 
-        <section id="about" class="content">
-            <h2>About Forkhub</h2>
-            <p>Forkhub is designed to enhance your GitHub experience by providing powerful organization and management tools for your repositories and projects.</p>
-        </section>
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Sign Up</h2>
+            <form id="signupForm">
+                <input type="text" id="signupUsername" placeholder="Username" required>
+                <input type="password" id="signupPassword" placeholder="Password" required>
+                <input type="submit" value="Sign Up" class="button">
+            </form>
+        </div>
+    </div>
 
-        <section id="services" class="content">
-            <h2>Our Services</h2>
-            <ul>
-                <li>Repository organization</li>
-                <li>Project management</li>
-                <li>Collaboration tools</li>
-                <li>Code review assistance</li>
-            </ul>
-        </section>
-
-        <section id="faq" class="content">
-            <h2>Frequently Asked Questions</h2>
-            <h3>What can Forkhub do?</h3>
-            <p>Forkhub can help you organize, code, and manage your GitHub projects. Your imagination is the limit to what you can achieve with Forkhub.</p>
-            <h3>What programming languages does Forkhub support?</h3>
-            <p>Forkhub supports various programming languages including HTML, CSS, JavaScript, Python, and many more.</p>
-        </section>
-    </main>
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Login</h2>
+            <form id="loginForm">
+                <input type="text" id="loginUsername" placeholder="Username" required>
+                <input type="password" id="loginPassword" placeholder="Password" required>
+                <input type="submit" value="Login" class="button">
+            </form>
+        </div>
+    </div>
 
     <footer>
         <div class="container">
@@ -57,6 +156,57 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Captcha check
+        if (!localStorage.getItem('visitedBefore')) {
+            const captcha = prompt("Please enter the password from the repo:");
+            if (captcha === "fork21") {
+                localStorage.setItem('visitedBefore', 'true');
+                alert("Welcome to Forkhub!");
+            } else {
+                alert("Incorrect captcha. Please refresh the page and try again.");
+                window.location.reload();
+            }
+        }
+
+        // Modal functionality
+        const signupModal = document.getElementById("signupModal");
+        const loginModal = document.getElementById("loginModal");
+        const signupBtn = document.getElementById("signupBtn");
+        const loginBtn = document.getElementById("loginBtn");
+        const closeBtns = document.getElementsByClassName("close");
+
+        signupBtn.onclick = () => signupModal.style.display = "block";
+        loginBtn.onclick = () => loginModal.style.display = "block";
+
+        for (let closeBtn of closeBtns) {
+            closeBtn.onclick = function() {
+                signupModal.style.display = "none";
+                loginModal.style.display = "none";
+            }
+        }
+
+        window.onclick = (event) => {
+            if (event.target == signupModal) {
+                signupModal.style.display = "none";
+            }
+            if (event.target == loginModal) {
+                loginModal.style.display = "none";
+            }
+        }
+
+        // Form submission (for demonstration purposes)
+        document.getElementById("signupForm").onsubmit = (e) => {
+            e.preventDefault();
+            alert("Sign up successful!");
+            signupModal.style.display = "none";
+        }
+
+        document.getElementById("loginForm").onsubmit = (e) => {
+            e.preventDefault();
+            alert("Login successful!");
+            loginModal.style.display = "none";
+        }
+    </script>
 </body>
 </html>
