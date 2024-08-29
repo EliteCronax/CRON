@@ -87,8 +87,8 @@
     </footer>
     <script>
     if (!localStorage.getItem('visitedBefore')) {
-        const captcha = prompt("Please enter the following captcha to continue: FORK2024");
-        if (captcha === "FORK2024") {
+        const captcha = prompt("Please enter the password from the repo:");
+        if (captcha === "fork21") {
             localStorage.setItem('visitedBefore', 'true');
             alert("Welcome to Forkhub!");
         } else {
