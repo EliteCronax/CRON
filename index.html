@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forkhub - Organize Your GitHub Repositories</title>
+    <link rel="icon" href="https://github.com/EliteCronax/forkhub/blob/main/favicon/favicon.ico" type="image/x-icon">
     <style>
         :root {
-            --primary-color: #4a90e2;
-            --secondary-color: #6c757d;
+            --primary-color: #808080;
+            --secondary-color: #4a90e2;
             --background-color: #f8f9fa;
             --text-color: #333;
         }
@@ -28,7 +29,7 @@
         }
 
         header {
-            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            background: linear-gradient(to right, #4a90e2, #6ab0ff);
             color: #fff;
             padding-top: 30px;
             min-height: 70px;
@@ -89,7 +90,7 @@
 
         .dark {
             padding: 15px;
-            background: linear-gradient(to bottom right, var(--secondary-color), #4a4a4a);
+            background: linear-gradient(to bottom right, #4a90e2, #6ab0ff);
             color: #ffffff;
             margin-top: 10px;
             margin-bottom: 10px;
@@ -112,7 +113,6 @@
 
         form input[type="text"],
         form input[type="email"],
-        form input[type="password"],
         form textarea {
             width: 100%;
             padding: 10px;
@@ -122,7 +122,7 @@
         }
 
         footer {
-            background-color: var(--secondary-color);
+            background-color: var(--primary-color);
             color: #fff;
             text-align: center;
             padding: 10px 0;
@@ -143,8 +143,6 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#features">Features</a></li>
                     <li><a href="#contact">Contact</a></li>
-                    <li><a href="#signup" class="button">Sign Up</a></li>
-                    <li><a href="#login" class="button">Login</a></li>
                 </ul>
             </nav>
         </div>
@@ -182,48 +180,6 @@
                     <p>Enhance team productivity with built-in collaboration features. Share code snippets, leave contextual comments, and manage pull requests all in one place.</p>
                 </li>
             </ul>
-        </div>
-    </section>
-
-    <section id="signup">
-        <div class="container">
-            <h2>Sign Up</h2>
-            <form id="signup-form">
-                <div>
-                    <label for="username">Username:</label>
-                    <input type="text" id="username" name="username" required>
-                </div>
-                <div>
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div>
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" required>
-                </div>
-                <div>
-                    <input type="submit" value="Sign Up" class="button">
-                </div>
-            </form>
-        </div>
-    </section>
-
-    <section id="login" class="dark">
-        <div class="container">
-            <h2>Login</h2>
-            <form id="login-form">
-                <div>
-                    <label for="login-username">Username:</label>
-                    <input type="text" id="login-username" name="login-username" required>
-                </div>
-                <div>
-                    <label for="login-password">Password:</label>
-                    <input type="password" id="login-password" name="login-password" required>
-                </div>
-                <div>
-                    <input type="submit" value="Login" class="button">
-                </div>
-            </form>
         </div>
     </section>
 
