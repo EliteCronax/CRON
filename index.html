@@ -4,122 +4,217 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forkhub - Organize Your GitHub Repositories</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Basic styles for improved UI */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #0779e4 3px solid;
+        }
+        header a {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        header li {
+            float: left;
+            display: inline;
+            padding: 0 20px 0 20px;
+        }
+        header #branding {
+            float: left;
+        }
+        header #branding h1 {
+            margin: 0;
+        }
+        header nav {
+            float: right;
+            margin-top: 10px;
+        }
+        header .highlight, header .current a {
+            color: #0779e4;
+            font-weight: bold;
+        }
+        header a:hover {
+            color: #cccccc;
+            font-weight: bold;
+        }
+        .button {
+            height: 38px;
+            background: #0779e4;
+            border: 0;
+            padding-left: 20px;
+            padding-right: 20px;
+            color: #ffffff;
+        }
+        .dark {
+            padding: 15px;
+            background: #35424a;
+            color: #ffffff;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        /* Add more styles as needed */
+    </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <h1>Forkhub</h1>
+            <div id="branding">
+                <h1><span class="highlight">Fork</span>hub</h1>
+            </div>
             <nav>
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#features">Features</a>
-                <a href="#contact">Contact</a>
-                <a href="#" id="signupBtn" class="button">Sign Up</a>
-                <a href="#" id="loginBtn" class="button">Login</a>
+                <ul>
+                    <li class="current"><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#ai-assistant">AI Assistant</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#signup" class="button">Sign Up</a></li>
+                    <li><a href="#login" class="button">Login</a></li>
+                </ul>
             </nav>
         </div>
     </header>
 
-    <main>
-        <section id="home" class="hero">
-            <div class="container">
-                <h2>Organize Your GitHub Universe</h2>
-                <p>Forkhub is your ultimate companion for managing repositories, code, and collaborations on GitHub.</p>
-                <a href="#features" class="cta-button">Explore Features</a>
-            </div>
-        </section>
+    <section id="home">
+        <div class="container">
+            <h1>Organize Your GitHub Universe</h1>
+            <p>Forkhub is your ultimate companion for managing repositories, code, and collaborations on GitHub. Streamline your workflow and boost productivity with our powerful features.</p>
+        </div>
+    </section>
 
-        <section id="about" class="about">
-            <div class="container">
-                <h2>About Forkhub</h2>
-                <p>Forkhub is a powerful tool designed to streamline your GitHub workflow. Created in 2024 by <a href="https://github.com/elitecronax" target="_blank">EliteCronax</a>, Forkhub helps developers organize their repositories, manage code, and collaborate more effectively.</p>
-                <img src="https://via.placeholder.com/600x400.png?text=Forkhub+Dashboard" alt="Forkhub Dashboard" class="feature-image">
-            </div>
-        </section>
+    <section id="about" class="dark">
+        <div class="container">
+            <h2>About Forkhub</h2>
+            <p>Forkhub is a cutting-edge tool designed to revolutionize your GitHub experience. Created in 2024 by <a href="https://github.com/elitecronax" target="_blank">EliteCronax</a>, Forkhub empowers developers to organize their repositories, manage code efficiently, and collaborate seamlessly with team members.</p>
+            <p>Our mission is to simplify the complexities of GitHub management, allowing you to focus on what truly matters - writing great code and building amazing projects.</p>
+        </div>
+    </section>
 
-        <section id="features" class="features">
-            <div class="container">
-                <h2>Key Features</h2>
-                <div class="feature-grid">
-                    <div class="feature-item">
-                        <img src="https://via.placeholder.com/150.png?text=Repo+Organizer" alt="Repository Organizer">
-                        <h3>Repository Organizer</h3>
-                        <p>Categorize and manage your GitHub repositories with ease.</p>
-                    </div>
-                    <div class="feature-item">
-                        <img src="https://via.placeholder.com/150.png?text=Code+Explorer" alt="Code Explorer">
-                        <h3>Code Explorer</h3>
-                        <p>Navigate and search through your codebase efficiently.</p>
-                    </div>
-                    <div class="feature-item">
-                        <img src="https://via.placeholder.com/150.png?text=Collaboration+Tools" alt="Collaboration Tools">
-                        <h3>Collaboration Tools</h3>
-                        <p>Enhance team productivity with built-in collaboration features.</p>
-                    </div>
-                    <div class="feature-item">
-                        <img src="https://via.placeholder.com/150.png?text=AI+Assistant" alt="AI Assistant">
-                        <h3>AI Coding Assistant</h3>
-                        <p>Get intelligent coding suggestions and answers to your questions.</p>
-                    </div>
+    <section id="features">
+        <div class="container">
+            <h2>Key Features</h2>
+            <ul>
+                <li>
+                    <h3>Repository Organizer</h3>
+                    <p>Effortlessly categorize and manage your GitHub repositories with our intuitive organization system. Tag, group, and sort your projects for quick access and improved workflow.</p>
+                </li>
+                <li>
+                    <h3>Code Explorer</h3>
+                    <p>Navigate through your codebase with ease using our advanced search and exploration tools. Find the exact file or function you need in seconds, saving valuable development time.</p>
+                </li>
+                <li>
+                    <h3>Collaboration Hub</h3>
+                    <p>Enhance team productivity with built-in collaboration features. Share code snippets, leave contextual comments, and manage pull requests all in one place.</p>
+                </li>
+                <li>
+                    <h3>AI-Powered Insights</h3>
+                    <p>Leverage the power of artificial intelligence to gain valuable insights into your code. Receive suggestions for code improvements, bug detection, and performance optimization.</p>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="ai-assistant" class="dark">
+        <div class="container">
+            <h2>AI Coding Assistant</h2>
+            <p>Experience the future of coding with our AI-powered assistant. Get instant answers to your programming questions, receive code suggestions, and solve complex problems with ease.</p>
+            <div id="ai-chat">
+                <div id="chat-messages">
+                    <!-- Chat messages will be displayed here -->
                 </div>
+                <form id="chat-form">
+                    <input type="text" id="user-input" placeholder="Ask a coding question..." required>
+                    <input type="submit" value="Send" class="button">
+                </form>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="ai-chat" class="ai-chat">
-            <div class="container">
-                <h2>AI Coding Assistant</h2>
-                <div class="chat-container">
-                    <div id="chat-messages"></div>
-                    <div class="chat-input">
-                        <input type="text" id="user-input" placeholder="Ask a coding question...">
-                        <button id="send-button">Send</button>
-                    </div>
+    <section id="signup">
+        <div class="container">
+            <h2>Sign Up</h2>
+            <form id="signup-form">
+                <div>
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
                 </div>
-            </div>
-        </section>
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div>
+                    <input type="submit" value="Sign Up" class="button">
+                </div>
+            </form>
+        </div>
+    </section>
 
-        <section id="contact" class="contact">
-            <div class="container">
-                <h2>Contact Us</h2>
-                <p>Have questions or suggestions? Reach out to us!</p>
-                <a href="https://github.com/elitecronax" target="_blank" class="button">Contact on GitHub</a>
-            </div>
-        </section>
-    </main>
+    <section id="login" class="dark">
+        <div class="container">
+            <h2>Login</h2>
+            <form id="login-form">
+                <div>
+                    <label for="login-username">Username:</label>
+                    <input type="text" id="login-username" name="login-username" required>
+                </div>
+                <div>
+                    <label for="login-password">Password:</label>
+                    <input type="password" id="login-password" name="login-password" required>
+                </div>
+                <div>
+                    <input type="submit" value="Login" class="button">
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>Have questions or suggestions? We'd love to hear from you!</p>
+            <form>
+                <div>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <div>
+                    <input type="submit" value="Send Message" class="button">
+                </div>
+            </form>
+        </div>
+    </section>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2024 Forkhub. All rights reserved.</p>
-        </div>
+        <p>&copy; 2024 Forkhub. All rights reserved. | Created by <a href="https://github.com/elitecronax" target="_blank">EliteCronax</a></p>
     </footer>
-
-    <div id="signupModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Sign Up</h2>
-            <form id="signupForm">
-                <input type="text" id="signupUsername" placeholder="Username" required>
-                <input type="email" id="signupEmail" placeholder="Email" required>
-                <input type="password" id="signupPassword" placeholder="Password" required>
-                <input type="submit" value="Sign Up" class="button">
-            </form>
-        </div>
-    </div>
-
-    <div id="loginModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Login</h2>
-            <form id="loginForm">
-                <input type="text" id="loginUsername" placeholder="Username" required>
-                <input type="password" id="loginPassword" placeholder="Password" required>
-                <input type="submit" value="Login" class="button">
-            </form>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
 </body>
 </html>
