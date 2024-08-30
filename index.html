@@ -14,6 +14,7 @@
             overflow-x: hidden;
             font-size: 14px;
             line-height: 1.5;
+            transition: background-color 0.5s ease;
         }
 
         .sliding-text {
@@ -24,6 +25,7 @@
             padding: 10px 0;
             white-space: nowrap;
             overflow: hidden;
+            z-index: 1000;
         }
 
         .sliding-text span {
@@ -53,7 +55,8 @@
         #countdown {
             font-size: 24px;
             text-align: center;
-            margin-top: 100px;
+            margin-top: 100vh;
+            padding-bottom: 50vh;
         }
     </style>
 </head>
@@ -92,6 +95,20 @@
 
         setInterval(updateCountdown, 1000);
         updateCountdown();
+
+        window.addEventListener('scroll', function() {
+            const countdown = document.getElementById('countdown');
+            const countdownRect = countdown.getBoundingClientRect();
+            const viewportHeight = window.innerHeight;
+
+            if (countdownRect.top <= viewportHeight && countdownRect.bottom >= 0) {
+                const scrollPercentage = (viewportHeight - countdownRect.top) / viewportHeight;
+                const red = Math.min(255, Math.round(scrollPercentage * 255));
+                document.body.style.backgroundColor = `rgb(${red}, 0, 0)`;
+            } else if (countdownRect.top > viewportHeight) {
+                document.body.style.backgroundColor = 'black';
+            }
+        });
     </script>
 </body>
 </html>
