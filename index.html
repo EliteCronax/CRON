@@ -49,15 +49,49 @@
         pre, code {
             font-family: inherit;
         }
+
+        #countdown {
+            font-size: 24px;
+            text-align: center;
+            margin-top: 100px;
+        }
     </style>
 </head>
 <body>
     <div class="sliding-text">
-        <span>&lt;//   CLAIM PRE-RELEASE BADGE BEFORE IT IS GONE FOREVER   //   CLAIM PRE-RELEASE BADGE BEFORE IT IS GONE FOREVER   //   CLAIM PRE-RELEASE BADGE BEFORE IT IS GONE FOREVER   //   CLAIM PRE-RELEASE BADGE BEFORE IT IS GONE FOREVER   //&gt;</span>
+        <span>&lt;//   CLAIM PRE-RELEASE BADGE BEFORE IT IS GONE FOREVER   //   50% SALE ON EVERYTHING FOR PRE-RELEASE   //&gt;</span>
     </div>
     <div class="content">
         <h1>CRON - Organization</h1>
         <p>Everything here is for a purpose, figure it out</p>
     </div>
+    <div id="countdown"></div>
+
+    <script>
+        function updateCountdown() {
+            const now = new Date();
+            const targetDate = new Date(now.getFullYear() + 1, now.getMonth(), now.getDate());
+            targetDate.setDate(targetDate.getDate() + 100);
+
+            const timeDiff = targetDate - now;
+
+            const years = 1;
+            const days = 100;
+            const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+            document.getElementById('countdown').innerHTML = `
+                ${years} year${years !== 1 ? 's' : ''}, 
+                ${days} day${days !== 1 ? 's' : ''}, 
+                ${hours} hour${hours !== 1 ? 's' : ''}, 
+                ${minutes} minute${minutes !== 1 ? 's' : ''}, 
+                ${seconds} second${seconds !== 1 ? 's' : ''}
+            `;
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
 </body>
 </html>
