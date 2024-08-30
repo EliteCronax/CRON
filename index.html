@@ -16,6 +16,29 @@
             line-height: 1.5;
             transition: background-color 0.5s ease;
         }
+        .sliding-text {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            padding: 10px 0;
+            background-color: rgba(255, 255, 255, 0.1);
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .sliding-text span {
+            display: inline-block;
+            padding-left: 100%;
+            animation: slide 20s linear infinite;
+        }
+        @keyframes slide {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(-100%, 0);
+            }
+        }
         .floating-language {
             position: fixed;
             bottom: -50px;
@@ -29,13 +52,14 @@
 </head>
 <body>
     <div class="sliding-text">
-        <span>&lt;//   CLAIM PRE-RELEASE BADGE BEFORE IT IS GONE FOREVER   //   50% SALE ON EVERYTHING FOR PRE-RELEASE   //&gt;</span>
+        <span>&lt;//   CLAIM PRE-RELEASE BADGE BEFORE IT IS GONE FOREVER   //&gt;</span>
     </div>
     <div class="content">
-        <h1>CRON - Organization</h1>
-        <p>Everything here is for a purpose, figure it out</p>
+        <h1>CRON</h1>
+        <p>?</p>
     </div>
     <div id="countdown"></div>
+    <div id="languages"></div>
 
     <script>
         function updateCountdown() {
@@ -63,44 +87,28 @@
         setInterval(updateCountdown, 1000);
         updateCountdown();
 
-        window.addEventListener('scroll', function() {
-            const countdown = document.getElementById('countdown');
-            const countdownRect = countdown.getBoundingClientRect();
-            const viewportHeight = window.innerHeight;
-
-            if (countdownRect.top <= viewportHeight && countdownRect.bottom >= 0) {
-                const scrollPercentage = (viewportHeight - countdownRect.top) / viewportHeight;
-                const red = Math.min(255, Math.round(scrollPercentage * 255));
-                document.body.style.backgroundColor = `rgb(${red}, 0, 0)`;
-            } else if (countdownRect.top > viewportHeight) {
-                document.body.style.backgroundColor = 'black';
-            }
-        });
-
-        // Add floating languages
         const languages = [
-            { name: 'Python', description: 'A versatile, high-level programming language' },
-            { name: 'JavaScript', description: 'The language of the web' },
-            { name: 'Rust', description: 'A systems programming language focused on safety and performance' },
-            { name: 'Go', description: 'A statically typed, compiled language designed at Google' },
-            { name: 'Ruby', description: 'A dynamic, object-oriented language focused on simplicity' },
-            { name: 'Haskell', description: 'A purely functional programming language' },
-            { name: 'C++', description: 'A powerful, general-purpose programming language' },
-            { name: 'Java', description: 'A popular, object-oriented language for enterprise applications' },
-            { name: 'Swift', description: 'Apple\'s language for iOS and macOS development' },
-            { name: 'Kotlin', description: 'A modern programming language that makes developers happier' }
+            { name: "Python", description: "Versatile, readable, and powerful high-level programming language" },
+            { name: "JavaScript", description: "Dynamic scripting language for web development and beyond" },
+            { name: "Java", description: "Object-oriented language known for its 'write once, run anywhere' philosophy" },
+            { name: "C++", description: "Powerful systems programming language with object-oriented features" },
+            { name: "Ruby", description: "Dynamic, object-oriented language focused on simplicity and productivity" },
+            { name: "Go", description: "Efficient, concurrent, and minimalist language by Google" },
+            { name: "Rust", description: "Systems language focusing on safety, concurrency, and performance" },
+            { name: "TypeScript", description: "Typed superset of JavaScript for large-scale applications" },
+            { name: "Swift", description: "Modern language for iOS, macOS, and beyond" },
+            { name: "Kotlin", description: "Concise and expressive language for Android and multiplatform development" }
         ];
 
-        function createFloatingLanguage() {
-            const language = languages[Math.floor(Math.random() * languages.length)];
+        function createFloatingLanguage(language) {
             const element = document.createElement('div');
             element.className = 'floating-language';
-            element.innerHTML = `<strong>${language.name}</strong>: ${language.description}`;
-            element.style.left = `${Math.random() * 100}%`;
+            element.textContent = `${language.name}: ${language.description}`;
+            element.style.left = `${Math.random() * 100}vw`;
             document.body.appendChild(element);
 
             setTimeout(() => {
-                element.style.bottom = '120%';
+                element.style.bottom = '120vh';
                 element.style.opacity = '0';
             }, 100);
 
@@ -109,7 +117,14 @@
             }, 10000);
         }
 
-        setInterval(createFloatingLanguage, 2000);
+        function animateLanguages() {
+            setInterval(() => {
+                const randomLanguage = languages[Math.floor(Math.random() * languages.length)];
+                createFloatingLanguage(randomLanguage);
+            }, 2000);
+        }
+
+        animateLanguages();
     </script>
 </body>
 </html>
