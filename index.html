@@ -56,7 +56,39 @@
             font-size: 24px;
             text-align: center;
             margin-top: 100vh;
-            padding-bottom: 50vh;
+            padding-bottom: 20vh;
+        }
+
+        #language-scroll {
+            overflow-x: auto;
+            white-space: nowrap;
+            padding: 20px 0;
+            background-color: rgba(255, 255, 255, 0.1);
+            margin-top: 20px;
+        }
+
+        #language-scroll::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        #language-scroll::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        #language-scroll::-webkit-scrollbar-thumb {
+            background: #888;
+        }
+
+        #language-scroll::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        .language {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 0 10px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
         }
     </style>
 </head>
@@ -70,6 +102,24 @@
     </div>
     <div id="countdown"></div>
 
+    <div id="language-scroll">
+        <span class="language">Python</span>
+        <span class="language">JavaScript</span>
+        <span class="language">Java</span>
+        <span class="language">C++</span>
+        <span class="language">Ruby</span>
+        <span class="language">Go</span>
+        <span class="language">Rust</span>
+        <span class="language">Swift</span>
+        <span class="language">Kotlin</span>
+        <span class="language">TypeScript</span>
+        <span class="language">PHP</span>
+        <span class="language">C#</span>
+        <span class="language">Scala</span>
+        <span class="language">Haskell</span>
+        <span class="language">Lua</span>
+    </div>
+
     <script>
         function updateCountdown() {
             const now = new Date();
@@ -79,7 +129,7 @@
             const timeDiff = targetDate - now;
 
             const years = 1;
-            const days = 100;
+            const days = 365;
             const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
