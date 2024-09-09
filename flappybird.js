@@ -37,27 +37,20 @@ function startFlappyBird() {
 
     function updateGame() {
         if (gameOver) return;
-
         bird.y++;
         if (bird.y >= height) gameOver = true;
-
         pipes.forEach(pipe => {
             pipe.x--;
             if (pipe.x === bird.x && (bird.y < pipe.topHeight || bird.y >= pipe.bottomY)) {
                 gameOver = true;
             }
         });
-
         pipes = pipes.filter(pipe => pipe.x >= 0);
-
         if (pipes.length === 0 || pipes[pipes.length - 1].x < width - 10) {
             createPipe();
         }
-
         if (pipes[0].x === bird.x) score++;
-
         drawGame();
-
         if (gameOver) {
             gameContainer.innerHTML += '<br>Game Over! Click to restart.';
             gameContainer.onclick = startFlappyBird;
@@ -75,7 +68,6 @@ function startFlappyBird() {
 
     document.addEventListener('keydown', jump);
     gameContainer.addEventListener('click', jump);
-
     createPipe();
     updateGame();
 }
